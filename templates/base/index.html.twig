@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu</title>
+    <script src="https://kit.fontawesome.com/2828f7885a.js" integrity="sha384-WAsFbnLEQcpCk8lM1UTWesAf5rGTCvb2Y+8LvyjAAcxK1c3s5c0L+SYOgxvc6PWG" crossorigin="anonymous"></script>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.2/gh-fork-ribbon.min.css" />
+</head>
+
+<body>
+<nav class="navbar topNav">
+    <div class="container ">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar shadow">
+    <div class="container">
+        <div class="navbar-menu" id="navMenu">
+            <div class="navbar-start bottomNav ">
+                <a class="navbar-item is-active" href="#">
+                    <i class="far fa-tachometer-alt"></i>&nbsp; Menu</a>
+                <a class="navbar-item" href="#">
+                    <i></i>&nbsp</a>
+
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="columns">
+        <div class="column is-12 main">
+            <span class="heading">Csv File Automotive</span>
+            <section class="info-tiles">
+                <div class="tile is-ancestor has-text-centered">
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title counter" data-count="{{nbrRowCsv}}">0</p>
+                            <p class="subtitle">Nombre total des lignes </p>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <h2>{{debutPeriode}}</h2>
+                            <p class="subtitle">Debut de la période</p>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <h2>{{finPeriode}}</h2>
+                            <p class="subtitle">Fin de période</p>
+                        </article>
+                    </div>
+                </div>
+            </section><br>
+            <section id="order">
+                <div class="order-body">
+                    <article class="media order shadow delivered">
+                        <figure class="media-left">
+                            <i class="far fa-box-check"></i>
+                        </figure>
+                        <div class="media-content">
+                            <div class="content">
+                                <p>
+                                    <strong></strong>
+                                    <br>
+                                    <small>
+                                        <strong></strong>
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="media-right">
+                            <div class="tags has-addons">
+                                <span class="tag is-light">Status:</span>
+                                <span class="tag is-delivered"><nav class="success" aria-label="breadcrumbs">
+                                        {% for label, messages in app.flashes %}
+                                            {% for message in messages %}
+
+                                                    {{ message }}
+
+                                            {% endfor %}
+                                        {% endfor %}
+                                    </nav></span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="media order shadow">
+                        <figure class="media-left">
+                            <i class="far fa-box"></i>
+                        </figure>
+                        <div class="media-content">
+                                <p>
+                                <form method="POST" action={{ path("appexpense") }}>
+                                    <b>Début de période </b><input type="text"  name="date_begin" value="1/01/2022" placeholder="exemple: 1/01/2022">
+                                    <b>Fin de période </b><input type="text"  name="date_end" value="31/01/2022" placeholder="exemple: 31/01/2022">
+                                       Dépense generale:
+                                    <button class="button  is-pulled-center is-info is-small">Submit <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                                 </form>
+                                <div class="media-right">
+                                    <div class="tags has-addons">
+                                        <span class="tag is-light">Status:</span>
+                                        <span class="tag is-transit">Ok</span>
+                                    </div>
+                                </div>
+                        </div>
+                    </article>
+                    <article class="media order shadow">
+                        <figure class="media-left">
+                            <i class="far fa-box"></i>
+                        </figure>
+                        <div class="media-content">
+                            <p>
+                            <form method="POST" action={{ path("appcategory") }}>>
+                                <b>Début de période </b><input type="text"  name="date_begin" value="1/01/2022" placeholder="exemple: 1/01/2022">
+                                <b>Fin de période </b><input type="text"  name="date_end" value="31/01/2022" placeholder="exemple: 31/01/2022">
+                                Catégorie de dépense
+                                <select name="category_value" >
+                                    <option value="gasoline">gasoline</option>
+                                    <option value="diesel">diesel</option>
+                                    <option value="electricity_charge">electricity_charge</option>
+                                    <option value="gpl">gasoline</option>
+                                    <option value="hydrogen">gpl</option>
+                                </select>
+                                <button class="button  is-pulled-center is-info is-small">Submit <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                            </form>
+                            <div class="media-right">
+                                <div class="tags has-addons">
+                                    <span class="tag is-light">Status:</span>
+                                    <span class="tag is-transit">Ok</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="media order shadow">
+                        <figure class="media-left">
+                            <i class="far fa-box"></i>
+                        </figure>
+                        <div class="media-content">
+                            <p class="control">
+                                <a class="button is-success is-small  is-pulled-center is-small" href="{{ path("appvehicle") }}">
+										<span class="icon">
+										</span>
+                                    <span>Top 10 véhicules ---des dépenses--> </span>
+                                </a>
+                            </p>
+                            <div class="media-right">
+                                <div class="tags has-addons">
+                                    <span class="tag is-light">Status:</span>
+                                    <span class="tag is-transit">Ok</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <div class="columns">
+            </div>
+        </div>
+    </div>
+    <span class="heading">Metrics</span>
+    <div class="columns">
+        <div class="column">
+            <div class="box">
+                <canvas id="orderChart"></canvas>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box">
+                <canvas id="ticketChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<script async type="text/javascript" src="js/scripts.js"></script>
+</body>
+
+</html>

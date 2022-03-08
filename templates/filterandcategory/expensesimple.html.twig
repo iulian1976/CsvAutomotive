@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Menu</title>
+    <script src="https://kit.fontawesome.com/2828f7885a.js" integrity="sha384-WAsFbnLEQcpCk8lM1UTWesAf5rGTCvb2Y+8LvyjAAcxK1c3s5c0L+SYOgxvc6PWG" crossorigin="anonymous"></script>
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/styles.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.2/gh-fork-ribbon.min.css" />
+</head>
+
+<body>
+<nav class="navbar topNav">
+    <div class="container ">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="columns">
+        <div class="column is-12 main">
+            <span class="heading">Csv File Automotive</span>
+            <p class="control">
+                <a class="button is-small is-info is-outlined" href="{{ path('base') }}">
+										<span class="icon">
+
+										</span>
+                    <span>Retour Menu</span>
+                </a>
+            </p>
+            <section class="info-tiles">
+                <div class="tile is-ancestor has-text-centered">
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title counter" >{{expense[0]}}</p>
+                            <p class="subtitle">Dépences totale Ht</p>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title counter" >{{expense[2]}}</p>
+                            <p class="subtitle">Dépences totale TTc</p>
+                        </article>
+                    </div>
+                </div>
+            </section><br>
+            <div class="columns">
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<script async type="text/javascript" src="js/scripts.js"></script>
+</body>
+
+</html>
