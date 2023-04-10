@@ -1,8 +1,6 @@
 # L'étude de cas CSV->Traitements->OBJ->BDD
 
-
-L’entreprise **TechAutomotive** souhaite faciliter l'intégration de fichiers de dépenses pour des véhicules dans une base de données. Ces fichiers sont transmis par le fournisseur **Audi Ingolstadt**. 
-Ces fichiers contiennent les prises de carburant sur des périodes.
+Traitements CSV vers une base de donnes et le retour
 
 Le fichier du fournisseur est définit sous le format suivant :
 
